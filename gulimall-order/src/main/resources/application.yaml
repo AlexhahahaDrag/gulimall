@@ -1,0 +1,17 @@
+server:
+  port: 30001
+
+# mysql
+spring:
+  application:
+    name: gulimall_product
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #MySQL配置
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.6:3306/gulimall_oms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: mysql
+
+mybatis:
+  config-location: classpath*:/**/*.xml
