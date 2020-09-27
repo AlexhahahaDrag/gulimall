@@ -1,5 +1,7 @@
 package com.alex.gulimall.coupon.service.impl;
 
+import com.alex.gulimall.common.utils.R;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -26,4 +28,11 @@ public class SmsCouponServiceImpl extends ServiceImpl<SmsCouponDao, SmsCouponEnt
         return new PageUtils(page);
     }
 
+    @Value("${coupon.version}")
+    private String version;
+
+    @Override
+    public R info() {
+        return R.ok().put("version", version);
+    }
 }

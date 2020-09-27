@@ -5,6 +5,8 @@ import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,9 +33,17 @@ public class SmsCouponHistoryController {
     @Autowired
     private SmsCouponHistoryService smsCouponHistoryService;
 
+    @Value("${coupon.version}")
+    private String version;
     /**
      * 列表
      */
+    @RequestMapping("/version")
+    //@RequiresPermissions("coupon:smscouponhistory:list")
+    public R version(@RequestParam Map<String, Object> params){
+        return R.ok().put("version", version);
+    }
+
     @RequestMapping("/list")
     //@RequiresPermissions("coupon:smscouponhistory:list")
     public R list(@RequestParam Map<String, Object> params){

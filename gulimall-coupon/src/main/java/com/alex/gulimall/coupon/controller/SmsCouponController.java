@@ -5,6 +5,8 @@ import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,7 @@ import com.alex.gulimall.coupon.service.SmsCouponService;
 import com.alex.gulimall.common.utils.PageUtils;
 import com.alex.gulimall.common.utils.R;
 
+import javax.annotation.Resource;
 
 
 /**
@@ -26,10 +29,31 @@ import com.alex.gulimall.common.utils.R;
  * @date 2020-09-25 07:07:44
  */
 @RestController
+@RefreshScope
 @RequestMapping("coupon/smscoupon")
 public class SmsCouponController {
     @Autowired
     private SmsCouponService smsCouponService;
+
+    @Value("${coupon.version}")
+    private String version;
+    /**
+     * 列表
+     */
+    @RequestMapping("/version")
+    //@RequiresPermissions("coupon:smscouponhistory:list")
+    public R version(@RequestParam Map<String, Object> params){
+        return R.ok().put("version", version);
+    }
+
+    /**
+     * 信息
+     */
+    @RequestMapping("/info")
+    //@RequiresPermissions("coupon:smscoupon:info")
+    public R info(){
+        return smsCouponService.info();
+    }
 
     /**
      * 列表

@@ -1,8 +1,10 @@
 package com.alex.gulimall.coupon.service;
 
+import com.alex.gulimall.common.utils.R;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.alex.gulimall.common.utils.PageUtils;
 import com.alex.gulimall.coupon.entity.SmsCouponEntity;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
@@ -16,5 +18,7 @@ import java.util.Map;
 public interface SmsCouponService extends IService<SmsCouponEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    R info();
 }
 

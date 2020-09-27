@@ -9,3 +9,4 @@ For further reference, please consider the following sections:
 
 1创建gulimall项目
 2添加renren modules
+3nacos @RefreshScope只刷新配置该注解的类
