@@ -1,21 +1,5 @@
 server:
   port: 9000
-
-# mysql
 spring:
-  application:
-    name: gulimall_product
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    #MySQL配置
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.1.6:3306/gulimall_oms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-    username: root
-    password: mysql
-
-mybatis-plus:
-  mappers-locations: classpath*:/mapper/**/*.xml
-  global-config:
-    db-config:
-      id-type: auto
-  type-aliases-package: com.alex.gulimall.order.entity
+  profiles:
+    active: dev
