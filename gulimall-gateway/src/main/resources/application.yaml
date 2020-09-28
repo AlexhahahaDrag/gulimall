@@ -1,0 +1,19 @@
+server:
+  port: 88
+spring:
+  profiles:
+    active: dev
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: test_baidu
+          uri: https://www.baidu.com
+          predicates:
+            - Query=uri,baidu
+        - id: test_qq
+          uri: https://www.qq.com
+          predicates:
+            - Query=uri,qq
