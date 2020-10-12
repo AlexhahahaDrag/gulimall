@@ -36,6 +36,7 @@
         <module>renren-fast</module>
         <module>gulimall-common</module>
         <module>gulimall-gateway</module>
+        <module>gulimall-third</module>
     </modules>
 
     <!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupId和version  -->
