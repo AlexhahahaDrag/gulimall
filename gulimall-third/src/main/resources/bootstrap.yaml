@@ -8,8 +8,7 @@ spring:
         file-extension: yaml
         group: gulimall-dev
         namespace: bfe18019-b186-48eb-b164-7379ae3c318d
-    alicloud:
-      access-key: ak
-      secret-key: as
-      oss:
-        endpoint: oss-cn-beijing.aliyuncs.com
+        ext-config[0]:
+          data-id: oss.yaml
+          group: gulimall-dev
+          refresh: true
